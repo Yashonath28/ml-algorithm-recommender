@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import './App.css'
+const API_BASE_URL = import.meta.env.VITE_API_URL || ''
 
 function App() {
   const [file, setFile] = useState(null)
@@ -72,7 +73,7 @@ function App() {
       formData.append('file', file)
 
       const response = await axios.post(
-        '/api/analyze-dataset',
+        `${API_BASE_URL}/api/analyze-dataset`,
         formData
       )
 
